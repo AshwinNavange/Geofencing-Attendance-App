@@ -1,3 +1,4 @@
+import 'package:attendance/firebase_options.dart';
 import 'package:attendance/services/location_service.dart';
 import 'package:attendance/mainlogin.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,9 @@ import 'model/user.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
