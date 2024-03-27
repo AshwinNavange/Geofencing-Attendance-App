@@ -1,13 +1,13 @@
-import 'package:attendance/firebase_options.dart';
+import 'package:attendance/data/firebase_options.dart';
+import 'package:attendance/presentation/homescreen.dart';
+import 'package:attendance/presentation/loginscreen.dart';
 import 'package:attendance/services/location_service.dart';
-import 'package:attendance/mainlogin.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/services.dart';
 import 'package:month_year_picker/month_year_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:attendance/homescreen.dart';
 import 'model/user.dart';
+import 'theme/colors.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,21 +18,19 @@ Future<void> main() async{
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Color primary = const Color(0xffeef444c);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.light(
-          primary: primary,
-          secondary: primary,
+        colorScheme: const ColorScheme.light(
+          primary: AppColors.primary,
+          secondary: AppColors.secondary,
           onSecondary: Colors.white,
         ),
-        primaryColor: const Color(0xffeef444c),
-        //accentColor: const Color(0xffeef444c),
+        primaryColor: AppColors.primary,
       ),
       home: const AuthCheck(),
       localizationsDelegates: const [
@@ -43,9 +41,10 @@ class MyApp extends StatelessWidget {
 }
 
 class AuthCheck extends StatefulWidget {
-  const AuthCheck({Key? key}) : super(key: key);
+  const AuthCheck({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _AuthCheckState createState() => _AuthCheckState();
 }
 
@@ -123,7 +122,7 @@ class _AuthCheckState extends State<AuthCheck> {
 
   @override
   Widget build(BuildContext context) {
-    return userAvailable ? HomeScreen() : const MainLogin();
+    return userAvailable ? const HomeScreen() : const LoginScreen();
   }
 }
 
