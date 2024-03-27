@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           onSecondary: Colors.white,
         ),
         primaryColor: const Color(0xffeef444c),
-        accentColor: const Color(0xffeef444c),
+        //accentColor: const Color(0xffeef444c),
       ),
       home: const AuthCheck(),
       localizationsDelegates: const [

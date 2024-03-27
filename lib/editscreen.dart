@@ -151,7 +151,7 @@ class _EditScreenState extends State<EditScreen> {
                                 ),
                                 textButtonTheme: TextButtonThemeData(
                                   style: TextButton.styleFrom(
-                                    primary: primary,
+                                    backgroundColor: primary,
                                   ),
                                 ),
                                 textTheme: const TextTheme(
